@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test-andrea4
+  labels:
+    backstage.io/kubernetes-id: test-andrea4
+    app.kubernetes.io/name: test-andrea4
+    rht-gitops.com/janus-argocd: test-andrea4
+spec:

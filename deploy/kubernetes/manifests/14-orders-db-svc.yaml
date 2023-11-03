@@ -1,0 +1,18 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: orders-db
+  labels:
+    name: orders-db
+    backstage.io/kubernetes-id: test-andrea4
+    app.kubernetes.io/name: test-andrea4
+    rht-gitops.com/janus-argocd: test-andrea4
+  namespace: test-andrea4
+spec:
+  ports:
+    # the port that this service should serve on
+    - port: 27017
+      targetPort: 27017
+  selector:
+    name: orders-db

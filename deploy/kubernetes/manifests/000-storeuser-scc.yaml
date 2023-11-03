@@ -1,0 +1,53 @@
+---
+kind: SecurityContextConstraints
+apiVersion: security.openshift.io/v1
+metadata:
+  name: test-andrea4-scc-storeuser
+  labels:
+    backstage.io/kubernetes-id: test-andrea4
+    app.kubernetes.io/name: test-andrea4
+    rht-gitops.com/janus-argocd: test-andrea4
+allowHostPID: false
+allowHostNetwork: false
+allowPrivilegeEscalation: true
+allowHostDirVolumePlugin: false
+allowHostIPC: false
+readOnlyRootFilesystem: false
+allowHostPorts: false
+allowPrivilegedContainer: false
+runAsUser:
+  type: MustRunAs
+  uid: 10001
+seLinuxContext:
+  type: RunAsAny
+fsGroup:
+  type: RunAsAny
+supplementalGroups:
+  type: RunAsAny
+users:
+  - system:serviceaccount:test-andrea4:storeuser-sa
+---
+kind: SecurityContextConstraints
+apiVersion: security.openshift.io/v1
+metadata:
+  name: test-andrea4-scc-storeuseradmin
+  annotations:
+    backstage.io/kubernetes-id: test-andrea4
+allowHostPID: false
+allowHostNetwork: false
+allowPrivilegeEscalation: true
+allowHostDirVolumePlugin: false
+allowHostIPC: false
+readOnlyRootFilesystem: false
+allowHostPorts: false
+allowPrivilegedContainer: false
+runAsUser:
+  type: RunAsAny
+seLinuxContext:
+  type: RunAsAny
+fsGroup:
+  type: RunAsAny
+supplementalGroups:
+  type: RunAsAny
+users:
+  - system:serviceaccount:test-andrea4:storeuseradmin-sa
